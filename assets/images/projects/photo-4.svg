@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="monoSky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+    <linearGradient id="glassFacade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3f3f46" />
+      <stop offset="50%" stop-color="#27272a" />
+      <stop offset="100%" stop-color="#18181b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#monoSky)" />
+
+  <!-- Dramatic Low-Angle Skyscraper Perspectives -->
+  <!-- Left Tower -->
+  <polygon points="60,600 240,600 320,80 180,80" fill="url(#glassFacade)" stroke="#52525b" stroke-width="1.5" />
+  
+  <!-- Architectural mullion lines -->
+  <line x1="200" y1="80" x2="100" y2="600" stroke="#71717a" stroke-width="1" opacity="0.4" />
+  <line x1="240" y1="80" x2="150" y2="600" stroke="#71717a" stroke-width="1" opacity="0.4" />
+  <line x1="280" y1="80" x2="200" y2="600" stroke="#71717a" stroke-width="1" opacity="0.4" />
+
+  <!-- Center Dramatic Triangular Monolith -->
+  <polygon points="340,600 580,600 480,40" fill="#18181b" stroke="#a1a1aa" stroke-width="2" />
+  <polygon points="480,40 580,600 520,600" fill="#27272a" />
+
+  <!-- Geometric cantilever diagonal beam -->
+  <polygon points="280,340 700,220 720,270 280,380" fill="#27272a" stroke="#d4d4d8" stroke-width="1.5" />
+
+  <!-- High contrast sunbeam slash across facade -->
+  <polygon points="420,100 600,600 680,600 480,100" fill="#ffffff" opacity="0.08" />
+
+  <!-- Minimalist Bird in flight for scale -->
+  <path d="M430 180 Q440 170 450 180 Q460 170 470 180" fill="none" stroke="#e4e4e7" stroke-width="2" />
+
+  </svg>

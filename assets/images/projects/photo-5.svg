@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="savannahSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="amberBacklight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#7c2d12" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#savannahSky)" />
+  <circle cx="420" cy="280" r="220" fill="url(#amberBacklight)" />
+
+  <!-- Moon / Low sun backlight -->
+  <circle cx="420" cy="260" r="90" fill="#fef3c7" opacity="0.15" />
+
+  <!-- Majestic Flying Golden Eagle in High-Speed Action -->
+  <!-- Left Wing -->
+  <path d="M400 270 C340 220 220 160 120 180 C180 230 260 270 350 290 Z" fill="#334155" stroke="#f59e0b" stroke-width="1.5" />
+  <!-- Feather tips -->
+  <path d="M120 180 L140 220 M145 190 L165 230 M170 200 L190 240 M200 210 L220 250" stroke="#f59e0b" stroke-width="2" />
+
+  <!-- Right Wing -->
+  <path d="M440 270 C500 210 620 150 720 170 C660 220 580 260 480 285 Z" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+  <path d="M720 170 L700 210 M695 180 L675 220 M670 190 L650 230 M640 200 L620 240" stroke="#f59e0b" stroke-width="2" />
+
+  <!-- Torso & Head -->
+  <path d="M370 270 C390 240 440 240 460 270 C470 310 440 370 420 390 C390 370 365 310 370 270 Z" fill="#0f172a" />
+  <!-- Head & Beak -->
+  <circle cx="415" cy="240" r="16" fill="#f8fafc" />
+  <polygon points="410,236 438,245 410,252" fill="#fbbf24" />
+  <!-- Eye -->
+  <circle cx="418" cy="239" r="2.5" fill="#0f172a" />
+
+  <!-- Tail Feathers & Talons -->
+  <polygon points="405,390 420,440 435,390" fill="#f8fafc" />
+  <path d="M400 370 L395 395 M430 370 L435 395" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" />
+
+  </svg>

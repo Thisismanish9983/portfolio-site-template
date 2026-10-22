@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="35%" stop-color="#1e1b4b" />
+      <stop offset="65%" stop-color="#7c2d12" />
+      <stop offset="85%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#fef3c7" />
+    </linearGradient>
+    <linearGradient id="sunGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="lakeReflect" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#311910" />
+      <stop offset="40%" stop-color="#141926" />
+      <stop offset="100%" stop-color="#080c14" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="380" fill="url(#skyGrad)" />
+
+  <!-- Rising Sun and Glow -->
+  <circle cx="480" cy="300" r="140" fill="url(#sunGlow)" />
+  <circle cx="480" cy="300" r="35" fill="#ffffff" />
+
+  <!-- Far Distant Peaks -->
+  <polygon points="120,340 260,230 400,340" fill="#431407" opacity="0.6" />
+  <polygon points="320,340 480,180 620,340" fill="#5b21b6" opacity="0.4" />
+  <polygon points="500,340 680,210 820,340" fill="#431407" opacity="0.7" />
+
+  <!-- Mountain Silhouette (Main Ridge) -->
+  <polygon points="-40,380 180,240 340,320 540,220 720,340 860,260 860,400 -40,400" fill="#0f172a" />
+  
+  <!-- Snow Cap Highlight on Summit -->
+  <polygon points="180,240 160,265 195,260" fill="#fef3c7" opacity="0.9" />
+  <polygon points="540,220 520,245 565,245" fill="#fef3c7" opacity="0.9" />
+
+  <!-- Alpine Pine Tree Silhouettes -->
+  <g fill="#070b13">
+    <polygon points="80,380 100,310 120,380" />
+    <polygon points="110,390 125,325 140,390" />
+    <polygon points="130,380 150,300 170,380" />
+    <polygon points="680,390 705,295 730,390" />
+    <polygon points="720,390 740,315 760,390" />
+  </g>
+
+  <!-- Mirror Lake Water -->
+  <rect x="0" y="380" width="800" height="220" fill="url(#lakeReflect)" />
+  
+  <!-- Water light ripples -->
+  <ellipse cx="480" cy="420" rx="120" ry="12" fill="#f59e0b" opacity="0.35" />
+  <ellipse cx="480" cy="460" rx="80" ry="8" fill="#d97706" opacity="0.25" />
+  <ellipse cx="480" cy="500" rx="50" ry="5" fill="#d97706" opacity="0.15" />
+
+  </svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="palaceBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1214" />
+      <stop offset="50%" stop-color="#120b0d" />
+      <stop offset="100%" stop-color="#080405" />
+    </linearGradient>
+    <radialGradient id="bokehGlow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="goldRoyal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#palaceBg)" />
+  <circle cx="400" cy="270" r="280" fill="url(#bokehGlow)" />
+
+  <!-- Atmospheric Fairy Light Bokeh circles -->
+  <circle cx="150" cy="180" r="24" fill="#fbbf24" opacity="0.25" />
+  <circle cx="240" cy="110" r="14" fill="#fde68a" opacity="0.3" />
+  <circle cx="580" cy="160" r="32" fill="#f59e0b" opacity="0.2" />
+  <circle cx="670" cy="240" r="18" fill="#fbbf24" opacity="0.3" />
+  <circle cx="320" cy="90" r="10" fill="#fef3c7" opacity="0.4" />
+  <circle cx="480" cy="80" r="16" fill="#fef3c7" opacity="0.3" />
+
+  <!-- Heritage Palace Archway Architecture -->
+  <path d="M180 500 L180 260 C180 140 620 140 620 260 L620 500" fill="none" stroke="#2a181c" stroke-width="24" />
+  <path d="M220 500 L220 270 C220 170 580 170 580 270 L580 500" fill="none" stroke="url(#goldRoyal)" stroke-width="2.5" stroke-dasharray="12 8" opacity="0.7" />
+
+  <!-- Royal Couple Silhouette in Embrace -->
+  <!-- Groom (Left) -->
+  <path d="M340 230 C340 195 365 195 365 230 C365 250 355 265 340 275 C310 295 285 345 275 480 L370 480 C380 410 385 360 380 300 C370 280 340 260 340 230 Z" fill="#17121b" />
+  
+  <!-- Bride with Flowing Veil & Lehenga (Right) -->
+  <path d="M410 245 C410 210 435 210 435 245 C435 265 425 280 410 290 C430 310 470 360 520 480 L350 480 C360 410 395 340 400 290 Z" fill="#3b0712" />
+  
+  <!-- Flowing Embroidered Veil Trailing -->
+  <path d="M425 240 C460 250 510 320 560 490" fill="none" stroke="url(#goldRoyal)" stroke-width="3" opacity="0.9" />
+  <path d="M430 260 C470 280 530 360 590 490" fill="none" stroke="url(#goldRoyal)" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6" />
+
+  <!-- Hands Joined & Flower Garland Accent -->
+  <circle cx="380" cy="340" r="10" fill="#dc2626" />
+  <circle cx="395" cy="345" r="8" fill="#f59e0b" />
+  <circle cx="370" cy="348" r="8" fill="#f59e0b" />
+
+  </svg>
