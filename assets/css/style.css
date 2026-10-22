@@ -922,6 +922,9 @@ ul {
   color: var(--text-main);
   margin-bottom: 0.75rem;
 }
+.footer-brand span {
+  color: var(--accent-gold);
+}
 
 .footer-text {
   font-size: 0.875rem;
