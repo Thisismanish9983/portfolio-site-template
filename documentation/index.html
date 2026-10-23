@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Lens — Documentation &amp; User Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-elevated: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-gold: #b48a28;
+      --accent-gold-light: #d4af37;
+      --accent-blue: #2563eb;
+      --border: #e2e8f0;
+      --border-accent: rgba(180, 138, 40, 0.35);
+      --code-bg: #0f172a;
+      --code-text: #f8fafc;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+    a { color: var(--accent-gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .doc-header {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 3rem 2rem;
+      border-bottom: 3px solid var(--accent-gold);
+    }
+    .doc-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .doc-brand h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #ffffff;
+    }
+    .doc-brand h1 span { color: var(--accent-gold-light); }
+    .doc-brand p { color: #94a3b8; font-size: 1rem; margin-top: 0.25rem; }
+    .doc-badge-group { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .doc-badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: #fde047;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Layout */
+    .doc-container {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .doc-container { grid-template-columns: 1fr; }
+    }
+
+    /* Sidebar Navigation */
+    .doc-sidebar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      position: sticky;
+      top: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .doc-sidebar h3 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .doc-sidebar ul { list-style: none; }
+    .doc-sidebar li { margin-bottom: 0.5rem; }
+    .doc-sidebar a {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      font-weight: 500;
+      display: block;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .doc-sidebar a:hover {
+      background: var(--surface-elevated);
+      color: var(--accent-gold);
+      text-decoration: none;
+      transform: translateX(4px);
+    }
+
+    /* Content Area */
+    .doc-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+    .doc-section {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .doc-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .doc-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+    .doc-section h3 {
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin: 1.75rem 0 0.75rem 0;
+    }
+    .doc-section p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .doc-section ul, .doc-section ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-muted);
+    }
+    .doc-section li { margin-bottom: 0.5rem; }
+
+    /* Code Blocks */
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+      margin: 1rem 0 1.5rem 0;
+      border-left: 4px solid var(--accent-gold);
+    }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875em;
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+    }
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* Callout Note */
+    .callout {
+      background: #fefce8;
+      border-left: 4px solid var(--accent-gold);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin: 1.25rem 0;
+      color: #713f12;
+      font-size: 0.95rem;
+    }
+    .callout strong { color: #854d0e; }
+
+    .callout-info {
+      background: #eff6ff;
+      border-left: 4px solid var(--accent-blue);
+      color: #1e3a8a;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+    th {
+      background: var(--surface-elevated);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    td code { font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Documentation Header -->
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <div class="doc-brand">
+        <h1>LUMINA<span>.LENS</span></h1>
+        <p>Professional Photographer Portfolio Template &bull; Documentation &amp; Setup Guide</p>
+      </div>
+      <div class="doc-badge-group">
+        <span class="doc-badge">100% Pure HTML5 &amp; CSS3</span>
+        <span class="doc-badge">Zero JavaScript</span>
+        <span class="doc-badge">v1.0.0</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="doc-container">
+    
+    <!-- Navigation Sidebar -->
+    <aside class="doc-sidebar">
+      <h3>Documentation</h3>
+      <ul>
+        <li><a href="#intro">1. Introduction</a></li>
+        <li><a href="#structure">2. Package Structure</a></li>
+        <li><a href="#installation">3. Installation &amp; Preview</a></li>
+        <li><a href="#configuration">4. Basic Configuration</a></li>
+        <li><a href="#customizing-hero">5. Customizing Hero Photo</a></li>
+        <li><a href="#customizing-portfolio">6. Portfolio Gallery</a></li>
+        <li><a href="#customizing-contact">7. Contact Section Setup</a></li>
+        <li><a href="#customizing-styles">8. Colors &amp; Styling</a></li>
+        <li><a href="#deployment">9. Free Hosting &amp; Deploy</a></li>
+        <li><a href="#faq">10. Troubleshooting &amp; FAQ</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="doc-content">
+      
+      <!-- 1. Introduction -->
+      <section class="doc-section" id="intro">
+        <h2>1. Introduction</h2>
+        <p>Thank you for purchasing <strong>Lumina Lens</strong>! This template is an ultra-modern, luxury portfolio crafted specifically for photographers, videographers, visual artists, and creative professionals.</p>
+        <p>It is built with <strong>100% pure HTML5 and CSS3</strong>. It does not require any JavaScript libraries, Node.js, npm, webpack, or databases. It loads instantly and works flawlessly across desktops, tablets, and smartphones.</p>
+        
+        <div class="callout callout-info">
+          <strong>Key Benefit:</strong> You can edit any text or link by opening <code>index.html</code> in any simple text editor (such as VS Code, Sublime Text, or Notepad) and double-clicking the file to view your changes in any web browser.
+        </div>
+      </section>
+
+      <!-- 2. Package Structure -->
+      <section class="doc-section" id="structure">
+        <h2>2. Package Structure</h2>
+        <p>Your download package contains clean, organized files ready for immediate use:</p>
+        <pre><code>lumina-lens/
+├── index.html                   # Main website homepage
+├── README.md                    # Quick start documentation
+├── documentation/
+│   └── index.html               # Comprehensive user manual (this file)
+└── assets/
+    ├── css/
+    │   └── style.css            # Pure CSS3 stylesheet
+    └── images/
+        ├── favicon.svg          # Camera aperture browser icon
+        ├── hero-photographer.jpg# Hero portrait photograph
+        └── projects/            # Sample portfolio project preview cards
+            ├── photo-1.svg
+            ├── photo-2.svg
+            ├── photo-3.svg
+            ├── photo-4.svg
+            ├── photo-5.svg
+            └── photo-6.svg</code></pre>
+      </section>
+
+      <!-- 3. Installation & Preview -->
+      <section class="doc-section" id="installation">
+        <h2>3. Installation &amp; Local Preview</h2>
+        <ol>
+          <li><strong>Unzip:</strong> Extract the downloaded <code>lumina-lens-main-files.zip</code> file onto your computer.</li>
+          <li><strong>Open in Browser:</strong> Double-click the <code>index.html</code> file. It will immediately open and run in your default web browser (Chrome, Edge, Firefox, Safari).</li>
+          <li><strong>No Server Required:</strong> You do NOT need XAMPP, Apache, Node.js, or local servers. Pure HTML/CSS runs natively anywhere.</li>
+          <li><strong>Edit Code:</strong> Open the extracted folder in a code editor like <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> to start customizing.</li>
+        </ol>
+      </section>
+
+      <!-- 4. Basic Configuration -->
+      <section class="doc-section" id="configuration">
+        <h2>4. Basic Configuration</h2>
+        
+        <h3>4.1 Changing Page Title &amp; SEO Meta Tags</h3>
+        <p>Open <code>index.html</code> and locate lines 9&ndash;12 inside the <code>&lt;head&gt;</code>:</p>
+        <pre><code>&lt;title&gt;LUMINA LENS &mdash; Kabir Varma | Professional Photographer Portfolio&lt;/title&gt;
+&lt;meta name="description" content="Official photography portfolio of Kabir Varma..."&gt;
+&lt;meta name="author" content="Kabir Varma"&gt;</code></pre>
+        <p>Replace <code>Kabir Varma</code> with your personal name or studio brand.</p>
+
+        <h3>4.2 Customizing the Brand Name in Navigation &amp; Footer</h3>
+        <p>In <code>index.html</code>, locate the header logo (around line 35):</p>
+        <pre><code>&lt;a href="#home" class="brand-logo" aria-label="Lumina Lens Home"&gt;
+  &lt;img src="assets/images/favicon.svg" alt="Aperture Icon" class="brand-logo-icon" width="34" height="34"&gt;
+  &lt;span&gt;LUMINA&lt;span&gt;.LENS&lt;/span&gt;&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+        <p>And in the footer (around line 447):</p>
+        <pre><code>&lt;div class="footer-brand"&gt;LUMINA&lt;span&gt;.LENS&lt;/span&gt; &bull; KABIR VARMA&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- 5. Customizing Hero Photo -->
+      <section class="doc-section" id="customizing-hero">
+        <h2>5. Customizing the Hero Photo</h2>
+        <p>The hero section features a luxury card displaying a photographer portrait holding a camera with an availability badge.</p>
+        <p>In <code>index.html</code> (around lines 90&ndash;98):</p>
+        <pre><code>&lt;!-- Hero Visual (Professional Photographer Portrait) --&gt;
+&lt;div class="hero-visual"&gt;
+  &lt;div class="hero-photo-wrapper"&gt;
+    &lt;img src="assets/images/hero-photographer.jpg" alt="Your Name" class="hero-photographer-img" width="500" height="667"&gt;
+    &lt;div class="hero-photo-badge"&gt;
+      &lt;span class="hero-photo-badge-dot"&gt;&lt;/span&gt;
+      &lt;span&gt;Available for Global Shoots&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>How to Replace with Your Photo:</h3>
+        <ol>
+          <li>Take your own portrait photo (recommended aspect ratio: <strong>3:4</strong>, e.g., <code>900 &times; 1200 px</code>).</li>
+          <li>Save it as a JPG or PNG file.</li>
+          <li>Either overwrite <code>assets/images/hero-photographer.jpg</code> with your file, or place your image in <code>assets/images/</code> and update the <code>src</code> attribute in <code>index.html</code>.</li>
+        </ol>
+      </section>
+
+      <!-- 6. Portfolio Gallery -->
+      <section class="doc-section" id="customizing-portfolio">
+        <h2>6. Customizing the Portfolio Gallery</h2>
+        <p>In <code>index.html</code>, scroll to the <code>&lt;section class="section projects-section" id="projects"&gt;</code> section. Each photo card has the following structure:</p>
+        <pre><code>&lt;div class="photo-card"&gt;
+  &lt;div class="photo-img-box"&gt;
+    &lt;img src="assets/images/projects/photo-1.svg" alt="Palace Wedding" class="photo-img" loading="lazy"&gt;
+    &lt;span class="photo-badge"&gt;Royal Wedding&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="photo-content"&gt;
+    &lt;h3 class="photo-title"&gt;Golden Hour Palace Vows&lt;/h3&gt;
+    &lt;p class="photo-meta"&gt;Udaipur, Rajasthan &bull; Sunset ceremony...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <p>To add your real photographs: copy your images into <code>assets/images/projects/</code> and update the <code>&lt;img src="..."&gt;</code>, badge text, and project titles.</p>
+      </section>
+
+      <!-- 7. Contact Section Setup (CRITICAL FIX FOR CODESTER) -->
+      <section class="doc-section" id="customizing-contact">
+        <h2>7. Contact Section Configuration</h2>
+        <p>Lumina Lens uses a modern <strong>direct contact system</strong> with one-click actions instead of a generic backend form. Buyers can contact you immediately via WhatsApp, Email, and Instagram without server setups.</p>
+        
+        <p>In <code>index.html</code>, locate the contact cards around lines 401&ndash;436. Here are the <strong>exact code snippets</strong> and how to customize them:</p>
+
+        <h3>Card 1: Direct WhatsApp &amp; Phone (Line 403)</h3>
+        <pre><code>&lt;!-- Card 1: Direct WhatsApp &amp; Phone --&gt;
+&lt;div class="contact-card"&gt;
+  &lt;div class="contact-icon-bubble"&gt;💬&lt;/div&gt;
+  &lt;div class="contact-type"&gt;Direct WhatsApp &amp; Phone&lt;/div&gt;
+  &lt;div class="contact-value"&gt;+91 98765 43210&lt;/div&gt;
+  &lt;p class="contact-subtext"&gt;Available Mon &mdash; Sat, 10:00 AM &ndash; 7:00 PM IST&lt;/p&gt;
+  &lt;a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="contact-btn"&gt;
+    &lt;span&gt;Chat on WhatsApp &rarr;&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+        <ul>
+          <li><strong>To update your WhatsApp link:</strong> In <code>href="https://wa.me/919876543210"</code>, replace <code>919876543210</code> with your country code and phone number (without spaces, dashes, or the <code>+</code> sign). Example: for US number <code>+1 234 567 8900</code>, write <code>https://wa.me/12345678900</code>.</li>
+          <li><strong>Display Text:</strong> Update the text inside <code>&lt;div class="contact-value"&gt;</code> to your formatted phone number.</li>
+          <li><strong>Optional Direct Call (tel:):</strong> If you want the button to trigger a direct phone call instead of WhatsApp, simply change the <code>href</code> to <code>href="tel:+919876543210"</code> and the button text to <code>Call Now &rarr;</code>.</li>
+        </ul>
+
+        <h3>Card 2: Official Gmail / Email (Line 414)</h3>
+        <pre><code>&lt;!-- Card 2: Direct Gmail / Email --&gt;
+&lt;div class="contact-card"&gt;
+  &lt;div class="contact-icon-bubble"&gt;✉️&lt;/div&gt;
+  &lt;div class="contact-type"&gt;Official Gmail&lt;/div&gt;
+  &lt;div class="contact-value"&gt;kabir.photography@gmail.com&lt;/div&gt;
+  &lt;p class="contact-subtext"&gt;Typically replies within 12 hours&lt;/p&gt;
+  &lt;a href="mailto:kabir.photography@gmail.com" class="contact-btn"&gt;
+    &lt;span&gt;Send Email &rarr;&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+        <ul>
+          <li><strong>To update your Email link:</strong> In <code>href="mailto:kabir.photography@gmail.com"</code>, replace <code>kabir.photography@gmail.com</code> with your active email address.</li>
+          <li><strong>Display Text:</strong> Update the text inside <code>&lt;div class="contact-value"&gt;</code> with your email address.</li>
+        </ul>
+
+        <h3>Card 3: Studio Location &amp; Instagram (Line 425)</h3>
+        <pre><code>&lt;!-- Card 3: Studio Location &amp; Social --&gt;
+&lt;div class="contact-card"&gt;
+  &lt;div class="contact-icon-bubble"&gt;📍&lt;/div&gt;
+  &lt;div class="contact-type"&gt;Studio &amp; Availability&lt;/div&gt;
+  &lt;div class="contact-value"&gt;Mumbai &bull; New Delhi&lt;/div&gt;
+  &lt;p class="contact-subtext"&gt;Available for Worldwide Destination Travel &bull; Instagram: @lumina.lens&lt;/p&gt;
+  &lt;a href="https://instagram.com" target="_blank" rel="noopener" class="contact-btn"&gt;
+    &lt;span&gt;Instagram Profile &rarr;&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+        <ul>
+          <li><strong>To update your Instagram link:</strong> Replace <code>https://instagram.com</code> with your full profile URL (e.g. <code>https://instagram.com/your_handle</code>).</li>
+          <li><strong>Studio Location:</strong> Change <code>Mumbai &bull; New Delhi</code> to your city or service areas.</li>
+        </ul>
+      </section>
+
+      <!-- 8. Colors & Styling -->
+      <section class="doc-section" id="customizing-styles">
+        <h2>8. Colors &amp; Styling Guide</h2>
+        <p>All colors, fonts, and spacing are defined using centralized <strong>CSS Custom Properties (Variables)</strong> at the very top of <code>assets/css/style.css</code> (lines 9&ndash;50):</p>
+        <pre><code>:root {
+  /* Theme Colors */
+  --bg-dark: #f8f9fa;               /* Main background color */
+  --bg-surface: #ffffff;            /* Card background color */
+  --bg-surface-elevated: #f1f3f5;   /* Secondary card background */
+
+  /* Text Colors */
+  --text-main: #111827;             /* Heading &amp; primary text */
+  --text-muted: #475569;            /* Subtitles &amp; body text */
+
+  /* Luxury Accent Colors */
+  --accent-gold: #b48a28;           /* Primary gold accent */
+  --gold-gradient: linear-gradient(135deg, #d4af37 0%, #b48a28 50%, #856113 100%);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}</code></pre>
+        <p>Changing these values will instantly update the entire website's appearance consistently across all sections.</p>
+      </section>
+
+      <!-- 9. Deployment -->
+      <section class="doc-section" id="deployment">
+        <h2>9. Free Hosting &amp; Deployment</h2>
+        <p>Since Lumina Lens is a static HTML/CSS template, you can host it for free on world-class global CDNs:</p>
+
+        <h3>Option A: Vercel (Recommended &mdash; 1 Minute Deploy)</h3>
+        <ol>
+          <li>Create a free account at <a href="https://vercel.com" target="_blank">vercel.com</a>.</li>
+          <li>Install the Vercel CLI (<code>npm i -g vercel</code>) or simply drag-and-drop the unzipped <code>lumina-lens</code> folder into your Vercel dashboard.</li>
+          <li>Your site is live with a free SSL certificate!</li>
+        </ol>
+
+        <h3>Option B: Netlify (Drag &amp; Drop)</h3>
+        <ol>
+          <li>Go to <a href="https://app.netlify.com/drop" target="_blank">app.netlify.com/drop</a>.</li>
+          <li>Drag your template folder into the browser window.</li>
+          <li>Netlify deploys it in under 10 seconds.</li>
+        </ol>
+
+        <h3>Option C: Traditional cPanel Hosting</h3>
+        <ol>
+          <li>Log into your hosting cPanel.</li>
+          <li>Open <strong>File Manager</strong> and go to the <code>public_html/</code> directory.</li>
+          <li>Upload <code>index.html</code>, <code>README.md</code>, and the <code>assets/</code> folder.</li>
+        </ol>
+      </section>
+
+      <!-- 10. FAQ -->
+      <section class="doc-section" id="faq">
+        <h2>10. Troubleshooting &amp; FAQ</h2>
+        
+        <h3>Q: Do I need to install Node.js, npm, or any build tools?</h3>
+        <p><strong>A:</strong> No! Lumina Lens is built with 100% pure vanilla HTML5 and CSS3. There are no build tools or package managers required. Simply double-click <code>index.html</code>.</p>
+
+        <h3>Q: Why does the contact section have WhatsApp and Email instead of a form?</h3>
+        <p><strong>A:</strong> A static HTML form without a backend server or PHP script does not actually deliver emails. Lumina Lens uses high-converting direct WhatsApp and Gmail links so your clients can contact you instantly without delivery failures.</p>
+
+        <h3>Q: My new images aren't showing up after replacing them. Why?</h3>
+        <p><strong>A:</strong> Browsers often cache images. Press <code>Ctrl + F5</code> (Windows) or <code>Cmd + Shift + R</code> (Mac) to hard-refresh the page and clear your browser cache.</p>
+
+        <h3>Q: Need Support?</h3>
+        <p>If you encounter any issues or have questions regarding customization, please leave a comment on the product page on Codester and our team will be delighted to assist you!</p>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
